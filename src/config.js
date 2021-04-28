@@ -1,8 +1,5 @@
 const _ = require('lodash')
 
-const Envr = require('./Envr')
-Envr.get()
-
 const isLocal = process.platform === 'darwin'
 const env = process.env
 

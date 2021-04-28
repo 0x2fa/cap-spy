@@ -46,7 +46,7 @@ class Looker extends Sql {
             .get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest')
             .query({
               start: 1,
-              limit: 2500,
+              limit: process.env.NODE_ENV === 'production' ? 2500 : 5,
               convert: 'USD'
             })
             .set('X-CMC_PRO_API_KEY', process.env.COINMARKETCAP_KEY)
