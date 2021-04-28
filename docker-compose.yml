@@ -30,6 +30,7 @@ services:
       - $PWD:/usr/src/app
     environment:
       - NODE_ENV=$NODE_ENV
+      - ENV_FILE=$ENV_FILE
     networks:
       spy:
         aliases:

@@ -5,9 +5,7 @@
   "main": "./src",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate:dev": "ENV_FILE=.env.dev node helpers/migrations",
-    "migrate:prod": "ENV_FILE=.env.prod node helpers/migrations",
-    "looker:dev": "ENV_FILE=.env.dev node ./looker"
+    "looker": "node ./looker"
   },
   "repository": {
     "type": "git",
