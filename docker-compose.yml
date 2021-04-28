@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:10.4
+    container_name: spy-postgres
+    restart: always
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    networks:
+      spy:
+        aliases:
+          - postgres.spy
+    volumes:
+      - $PGDATA_DIR:/var/lib/postgresql/data/pgdata
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_DB=$POSTGRES_DB
+
+  looker:
+    image: node:erbium-alpine3.10
+    container_name: looker
+    restart: unless-stopped
+    volumes:
+      - $PWD:/usr/src/app
+    environment:
+      - NODE_ENV=$NODE_ENV
+    networks:
+      spy:
+        aliases:
+          - looker.spy
+    working_dir: /usr/src/app
+    command: npm run looker:dev
+
+#  cap-spy:
+#    image: node:erbium-alpine3.10
+#    container_name: cap-spy
+#    expose:
+#      - 9669
+#    ports:
+#      - 9669
+#    #        depends_on:
+#    #          - postgres
+#    restart: unless-stopped
+#    volumes:
+#      - $PWD:/usr/src/app
+#      - $PGDATA_DIR:/var/log/cryptosaint_net
+#    environment:
+#      - NODE_ENV=$NODE_ENV
+#      - VIRTUAL_HOST=$VIRTUAL_HOST
+#      - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
+#      - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
+#    networks:
+#      spy:
+#        aliases:
+#          - cap.spy
+#    working_dir: /usr/src/app
+#    command: npm run start
+
+
+
+networks:
+  spy:
+
+

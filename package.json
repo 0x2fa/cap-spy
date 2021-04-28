@@ -1,0 +1,31 @@
+{
+  "name": "cap-spy",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:dev": "ENV_FILE=.env.dev node helpers/migrations",
+    "migrate:prod": "ENV_FILE=.env.prod node helpers/migrations",
+    "looker:dev": "ENV_FILE=.env.dev node ./looker"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sullof/looker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sullof/looker/issues"
+  },
+  "homepage": "https://github.com/sullof/looker#readme",
+  "dependencies": {
+    "commander": "^4.1.1",
+    "daemon": "^1.1.0",
+    "dotenv": "^8.2.0",
+    "fs-extra": "^8.1.0",
+    "knex": "^0.95.4",
+    "pg": "^8.6.0",
+    "superagent": "^6.1.0"
+  }
+}
