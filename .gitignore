@@ -33,3 +33,4 @@ logs
 
 .nyc_output
 /data
+/postgres/init.sql
