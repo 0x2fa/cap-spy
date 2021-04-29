@@ -82,6 +82,7 @@ class Looker extends Sql {
         }
         console.log('Data saved at', res.body.status.timestamp)
       } catch (e) {
+        console.log(e)
       }
       await sleep(2 * 1000 * 3600)
     }
