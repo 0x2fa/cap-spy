@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     volumes:
       - $PWD:/usr/src/app
-      - $JSONDB_DATA:/usr/src/db
+      - $JSONDB_DIR:/usr/src/db
     environment:
       - JSONDB_DIR=/usr/src/db
       - LIMIT=$LIMIT
