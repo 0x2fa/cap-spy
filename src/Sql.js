@@ -27,11 +27,12 @@ class Sql {
         } catch (err) {
           console.debug('Postgres not ready')
         }
-        await sleep(1000)
+        await sleep(3000)
       }
     }
     return this.client
   }
+
 }
 
 

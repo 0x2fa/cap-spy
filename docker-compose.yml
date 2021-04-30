@@ -38,6 +38,7 @@ services:
       - POSTGRES_DB=$POSTGRES_DB
       - NODE_ENV=$NODE_ENV
       - COINMARKETCAP_KEY=$COINMARKETCAP_KEY
+      - LOOKER_PASSWORD=$LOOKER_PASSWORD
     networks:
       spy:
         aliases:

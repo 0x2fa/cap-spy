@@ -1,4 +1,4 @@
-const Sql = require('../../src/Sql')
+const Sql = require('./Sql')
 
 class Migration extends Sql {
 

@@ -1,4 +1,6 @@
-class CreateInitialTables extends require('./Migration') {
+const _ = require('lodash')
+
+class CreateInitialTables extends require('../Migration') {
 
   async body() {
 
@@ -46,6 +48,7 @@ class CreateInitialTables extends require('./Migration') {
     } else {
       console.info('Table coins_data previously created.')
     }
+
   }
 }
 

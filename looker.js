@@ -1,4 +1,4 @@
-const migrate = require('./helpers/migrations')
+const migrate = require('./src/migrations')
 const Looker = require('./src/Looker')
 const looker = new Looker()
 

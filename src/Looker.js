@@ -49,6 +49,41 @@ class Looker extends Sql {
     }
   }
 
+  async insertCoinData(data, last_updated) {
+
+    const {
+      id,
+      slug,
+      max_supply,
+      total_supply,
+      circulating_supply,
+      cmc_rank
+    } = data
+
+    let values = {
+      id,
+      slug,
+      max_supply,
+      total_supply,
+      circulating_supply,
+      cmc_rank,
+      last_updated
+    }
+
+    for (let key in data.quote.USD) {
+      values[`quote_usd_${key}`] = data.quote.USD[key]
+      if (key === 'last_updated') {
+        let d = new Date(data.quote.USD.last_updated)
+        d.setUTCHours(0)
+        d.setMinutes(0)
+        d.setSeconds(0)
+        values.ds = d
+      }
+    }
+
+    await (await this.sql()).insert(values).into('coins_data')
+  }
+
   async getMarketCapData() {
     const looptime = parseInt(process.env.LOOPTIME) * 1000
     while (true) {
@@ -65,33 +100,10 @@ class Looker extends Sql {
               .set('X-CMC_PRO_API_KEY', process.env.COINMARKETCAP_KEY)
               .accept('application/json')
 
+          let last_updated = (new Date).toISOString()
           for (let data of res.body.data) {
-
             await this.insertCoin(data)
-
-            const {
-              id,
-              max_supply,
-              total_supply,
-              circulating_supply,
-              cmc_rank,
-              last_updated
-            } = data
-
-            let values = {
-              id,
-              max_supply,
-              total_supply,
-              circulating_supply,
-              cmc_rank,
-              last_updated
-            }
-
-            for (let key in data.quote.USD) {
-              values[`quote_USD_${key}`] = data.quote.USD[key]
-            }
-
-            await (await this.sql()).insert(values).into('coins_data')
+            await this.insertCoinData(data, last_updated)
           }
           db.set('lastGrabAt', Date.now())
           console.log('Data saved at', res.body.status.timestamp)
