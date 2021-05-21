@@ -9,5 +9,6 @@ docker run -d \
     -e VIRTUAL_HOST=$VIRTUAL_HOST \
     -e LETSENCRYPT_HOST=$LETSENCRYPT_HOST \
     -e LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL \
-    crypto-explorer:latest
+    -w /usr/src/app \
+    crypto-explorer:latest streamlit run app.py
 
