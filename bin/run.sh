@@ -36,7 +36,7 @@ docker run -d \
   -e VIRTUAL_HOST=$VIRTUAL_HOST \
   -e LETSENCRYPT_HOST=$LETSENCRYPT_HOST \
   -e LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL \
-  -w /usr/src/app crypto-explorer
+  crypto-explorer:latest
 
 
 
