@@ -15,13 +15,11 @@ if (isLocal) {
 
 } else {
   pgConf = pgConfMaster = {
-    host: process.env.POSTGRES_PORT_5432_TCP_ADDR,
+    host: 'postgres.spy',
     port: 5432
   }
 
 }
-
-console.log(pgConf)
 
 const isProduction = env.NODE_ENV === 'production'
 
