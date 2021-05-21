@@ -3,6 +3,7 @@
 docker run -d \
     --name looker \
     --restart unless-stopped \
+    --link spydb:postgres \
     -v $PWD:/usr/src/app \
     -v $JSONDB_DIR:/usr/src/db \
     -e JSONDB_DIR=/usr/src/db \

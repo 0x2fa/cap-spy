@@ -15,7 +15,7 @@ if (isLocal) {
 
 } else {
   pgConf = pgConfMaster = {
-    host: 'postgres.spy',
+    host: process.env.POSTGRES_PORT_5432_TCP_ADDR,
     port: 5432
   }
 
