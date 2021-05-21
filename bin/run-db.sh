@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker run -d \
+source .env.prod && docker run -d \
     --name spydb \
     --restart unless-stopped \
     -p 5432 \

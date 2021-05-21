@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker run -d \
+source .env.prod && docker run -d \
     --name explorer \
     --restart unless-stopped \
     -p 8501 \
