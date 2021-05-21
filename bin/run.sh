@@ -33,9 +33,6 @@ docker run -d \
   -p 8501 \
   --restart unless-stopped \
   -e NODE_ENV=production \
-  -e VIRTUAL_HOST=brokenjazz.cc,www.brokenjazz.cc \
-  -e LETSENCRYPT_HOST=brokenjazz.cc,www.brokenjazz.cc \
-  -e LETSENCRYPT_EMAIL=brokenjazz@sullo.co \
   -e PG_CONF=$PG_CONF \
   -e VIRTUAL_HOST=$VIRTUAL_HOST \
   -e LETSENCRYPT_HOST=$LETSENCRYPT_HOST \
