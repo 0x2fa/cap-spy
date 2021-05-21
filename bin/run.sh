@@ -29,12 +29,12 @@ docker run -d \
     node:erbium-alpine3.10 npm run looker
 
 docker run -d \
-  --name crypto-explorer \
+  --name explorer \
   -p 8501 \
   --restart unless-stopped \
   -e PG_CONF=$PG_CONF \
   -e VIRTUAL_HOST=$VIRTUAL_HOST \
   -e LETSENCRYPT_HOST=$LETSENCRYPT_HOST \
   -e LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL \
-  crypto-explorer
+  -w /usr/src/app crypto-explorer
 
