@@ -5,7 +5,7 @@ docker run -d \
     --restart unless-stopped \
     -p 8501 \
     --link spydb:postgres \
-    -e PG_CONF="$PG_CONF" \
+    -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
     -e VIRTUAL_HOST=$VIRTUAL_HOST \
     -e LETSENCRYPT_HOST=$LETSENCRYPT_HOST \
     -e LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL \
