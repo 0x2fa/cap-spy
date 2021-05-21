@@ -38,3 +38,5 @@ docker run -d \
   -e LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL \
   -w /usr/src/app crypto-explorer
 
+
+
