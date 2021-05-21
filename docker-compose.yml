@@ -61,6 +61,8 @@ services:
     environment:
       - PG_CONF=$PG_CONF
       - VIRTUAL_HOST=$VIRTUAL_HOST
+      - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
+      - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
 
 
 
