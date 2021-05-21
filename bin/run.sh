@@ -36,10 +36,9 @@ docker run -d \
   -e VIRTUAL_HOST=brokenjazz.cc,www.brokenjazz.cc \
   -e LETSENCRYPT_HOST=brokenjazz.cc,www.brokenjazz.cc \
   -e LETSENCRYPT_EMAIL=brokenjazz@sullo.co \
-  -w /usr/src/app node:12.20.0-alpine3.10 npm run start
-  -e PG_CONF=$PG_CONF
-  -e VIRTUAL_HOST=$VIRTUAL_HOST
-  -e LETSENCRYPT_HOST=$LETSENCRYPT_HOST
-  -e LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
+  -e PG_CONF=$PG_CONF \
+  -e VIRTUAL_HOST=$VIRTUAL_HOST \
+  -e LETSENCRYPT_HOST=$LETSENCRYPT_HOST \
+  -e LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL \
   crypto-explorer
 
