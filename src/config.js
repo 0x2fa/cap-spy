@@ -21,6 +21,8 @@ if (isLocal) {
 
 }
 
+console.log(pgConf)
+
 const isProduction = env.NODE_ENV === 'production'
 
 const pgData = {
