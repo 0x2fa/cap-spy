@@ -46,30 +46,21 @@ services:
     working_dir: /usr/src/app
     command: npm run looker
 
-#  cap-spy:
-#    image: node:erbium-alpine3.10
-#    container_name: cap-spy
-#    expose:
-#      - 9669
-#    ports:
-#      - 9669
-#    #        depends_on:
-#    #          - postgres
-#    restart: unless-stopped
-#    volumes:
-#      - $PWD:/usr/src/app
-#      - $PGDATA_DIR:/var/log/cryptosaint_net
-#    environment:
-#      - NODE_ENV=$NODE_ENV
-#      - VIRTUAL_HOST=$VIRTUAL_HOST
-#      - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
-#      - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
-#    networks:
-#      spy:
-#        aliases:
-#          - cap.spy
-#    working_dir: /usr/src/app
-#    command: npm run start
+  cryptoexplorer:
+    image: crypto-explorer:latest
+    container_name: explorer
+    restart: unless-stopped
+    expose:
+      - 8501
+    ports:
+      - 8501:8501
+    networks:
+      spy:
+        aliases:
+          - explorer.spy
+    environment:
+      - PG_CONF=$PG_CONF
+      - VIRTUAL_HOST=$VIRTUAL_HOST
 
 
 
